@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Nemwel-Boniface/Nemwel-LeaderBoard#readme",
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   },
