@@ -1,7 +1,50 @@
-body {
-  background-color: bisque;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  margin: 4% 7%;
+}
+.main {
+  margin: 5% 8%;
+  display: flex;
+  gap: 50px;
 }
 
-.hello {
-  color: red;
+.leftHeader {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.leftHeader h2 {
+  margin-right: 10px;
+}
+.leftHeader button {
+  padding: 0;
+}
+
+.leftBody ul {
+  border: 2px solid #000;
+  margin: 0;
+  padding: 0;
+}
+
+.leftBody ul li {
+  width: 100%;
+  list-style-type: none;
+  height: 40px;
+  margin: auto 0;
+  padding-left: 5px;
+}
+.leftBody ul li:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.rightHeader {
+  margin-bottom: 40px;
+}
+
+.rightBody form input {
+  margin-bottom: 20px;
 }
