@@ -1,11 +1,13 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 h1 {
   margin: 4% 7%;
 }
+
 .main {
   margin: 5% 8%;
   display: flex;
@@ -20,6 +22,7 @@ h1 {
 .leftHeader h2 {
   margin-right: 10px;
 }
+
 .leftHeader button {
   padding: 0;
 }
@@ -37,6 +40,7 @@ h1 {
   margin: auto 0;
   padding-left: 5px;
 }
+
 .leftBody ul li:nth-child(odd) {
   background-color: lightgray;
 }

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 
 import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
@@ -6,10 +5,9 @@ import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.j
 const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
-const addLeader = document.querySelector('#add');
 const form = document.querySelector('#form');
 
-export let myLeaderBoard = [
+const myLeaderBoard = [
   {
     id: 1,
     name: 'Nemwel',
@@ -22,7 +20,6 @@ export let myLeaderBoard = [
   },
 ];
 
-
 const displayLeader = () => {
   leaderBoardWrapper.innerHTML = '';
   const mylocal = getFromLocalStorage(myLeaderBoard);
@@ -30,11 +27,11 @@ const displayLeader = () => {
   mylocal.forEach((tsk) => {
     leaderBoardWrapper.innerHTML += `
     <li id="${tsk.id}">${tsk.name} ${tsk.score}</li>`;
-  })
-}
+  });
+};
 
 const addLeaderToList = () => {
-  let index = myLeaderBoard.length;
+  const index = myLeaderBoard.length;
   myLeaderBoard.push({
     id: index + 1,
     name: leaderName.value,
@@ -50,9 +47,11 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   addLeaderToList(myLeaderBoard);
   addToLocalStorage(myLeaderBoard);
-})
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   getFromLocalStorage(myLeaderBoard);
   displayLeader();
-})
+});
+
+export default myLeaderBoard;
