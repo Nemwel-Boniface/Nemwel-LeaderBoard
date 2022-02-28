@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemwel Leader Board</title>
+</head>
+<body>
+    <h1>Leader Board</h1>
+    <main class="main">
+        <section class="left">
+            <div class="leftHeader">
+                <h2>Recent Scores</h2>
+                <button type="button">Refresh</button>
+            </div>
+            <div class="leftBody">
+                <ul class="leaders"></ul>
+            </div>
+        </section>
+
+        <section class="right">
+            <div class="rightHeader">
+                <h2>Add your score</h2>
+            </div>
+            <div class="rightBody">
+                <form id="form">
+                    <input type="text" id="name" name="name" placeholder=" Your name" required><br>
+                    <input type="number" id="number" name="number" placeholder=" Your score" required><br>
+                    <button type="submit" id="add">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
