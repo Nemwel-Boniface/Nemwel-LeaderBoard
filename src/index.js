@@ -26,7 +26,7 @@ const displayLeader = () => {
 
   mylocal.forEach((tsk) => {
     leaderBoardWrapper.innerHTML += `
-    <li id="${tsk.id}">${tsk.name} ${tsk.score}</li>`;
+    <li id="${tsk.id}">${tsk.name}: ${tsk.score}</li>`;
   });
 };
 
