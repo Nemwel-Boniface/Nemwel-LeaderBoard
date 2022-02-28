@@ -20,6 +20,27 @@ let myLeaderBoard = [
   },
 ];
 
+const addToLocalStorage = () => {
+  localStorage.setItem('leaderBoard', JSON.stringify(myLeaderBoard));
+}
+
+const getFromLocalStorage = () => {
+  if(localStorage.getItem('leaderBoard')) {
+    myLeaderBoard = JSON.parse(localStorage.getItem('leaderBoard'));
+  }
+  return myLeaderBoard;
+}
+
+const displayLeader = () => {
+  leaderBoardWrapper.innerHTML = '';
+  const mylocal = getFromLocalStorage();
+
+  mylocal.forEach((tsk) => {
+    leaderBoardWrapper.innerHTML += `
+    <li id="${tsk.id}">${tsk.name} ${tsk.score}</li>`;
+  })
+}
+
 const addLeaderToList = () => {
   let index = myLeaderBoard.length;
   myLeaderBoard.push({
