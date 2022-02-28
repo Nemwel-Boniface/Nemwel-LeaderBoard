@@ -1,13 +1,15 @@
 import _ from 'lodash';
 import './style.css';
 
+// import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
+
 const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
 const addLeader = document.querySelector('#add');
 const form = document.querySelector('#form');
 
-let myLeaderBoard = [
+export let myLeaderBoard = [
   {
     id: 1,
     name: 'Nemwel',
