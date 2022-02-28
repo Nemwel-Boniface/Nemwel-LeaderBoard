@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 
-// import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
+import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
 
 const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
@@ -22,20 +22,10 @@ export let myLeaderBoard = [
   },
 ];
 
-const addToLocalStorage = () => {
-  localStorage.setItem('leaderBoard', JSON.stringify(myLeaderBoard));
-}
-
-const getFromLocalStorage = () => {
-  if(localStorage.getItem('leaderBoard')) {
-    myLeaderBoard = JSON.parse(localStorage.getItem('leaderBoard'));
-  }
-  return myLeaderBoard;
-}
 
 const displayLeader = () => {
   leaderBoardWrapper.innerHTML = '';
-  const mylocal = getFromLocalStorage();
+  const mylocal = getFromLocalStorage(myLeaderBoard);
 
   mylocal.forEach((tsk) => {
     leaderBoardWrapper.innerHTML += `
@@ -50,7 +40,7 @@ const addLeaderToList = () => {
     name: leaderName.value,
     score: leaderScore.value,
   });
-  addToLocalStorage();
+  addToLocalStorage(myLeaderBoard);
   displayLeader();
   leaderName.value = '';
   leaderScore.value = '';
@@ -58,10 +48,11 @@ const addLeaderToList = () => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  addLeaderToList();
-  addToLocalStorage();
+  addLeaderToList(myLeaderBoard);
+  addToLocalStorage(myLeaderBoard);
 })
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
+  getFromLocalStorage(myLeaderBoard);
   displayLeader();
 })
