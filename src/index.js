@@ -1,57 +1,38 @@
 import './style.css';
 
-import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
-
 const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
 const form = document.querySelector('#form');
+// const myGameURL = 'ojq3rdgoTgouE5sLha5K';
+// const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/ojq3rdgoTgouE5sLha5K/scores/`;
 
-const myLeaderBoard = [
-  {
-    id: 1,
-    name: 'Nemwel',
-    score: 100,
-  },
-  {
-    id: 2,
-    name: 'Boniface',
-    score: 80,
-  },
-];
+const gameID = 'Y4TJzkMfBJeirD2R1Zn7';
+const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameID}/scores/`;
 
-const displayLeader = () => {
-  leaderBoardWrapper.innerHTML = '';
-  const mylocal = getFromLocalStorage(myLeaderBoard);
-
-  mylocal.forEach((tsk) => {
-    leaderBoardWrapper.innerHTML += `
-    <li id="${tsk.id}">${tsk.name}: ${tsk.score}</li>`;
+const postToApi = async (name, score) => {
+  console.log('called')
+  const data = await fetch(baseURL, {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      score,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
   });
-};
+  console.log('finished')
+  const json = data.json();
+  return json;
+}
 
-const addLeaderToList = () => {
-  const index = myLeaderBoard.length;
-  myLeaderBoard.push({
-    id: index + 1,
-    name: leaderName.value,
-    score: leaderScore.value,
-  });
-  addToLocalStorage(myLeaderBoard);
-  displayLeader();
-  leaderName.value = '';
-  leaderScore.value = '';
-};
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  addLeaderToList(myLeaderBoard);
-  addToLocalStorage(myLeaderBoard);
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  getFromLocalStorage(myLeaderBoard);
-  displayLeader();
-});
-
-export default myLeaderBoard;
+const post = () => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('default');
+    postToApi(leaderName.value, leaderScore.value);
+    form.reset();
+  })
+}
+post();
