@@ -2,10 +2,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #582be8 !important;
+}
+
+.NemwelLB {
+  background-color: #fff;
+  border-radius: 9px;
+  margin: 7%;
+  padding: 20px;
 }
 
 h1 {
-  margin: 4% 7%;
+  /* margin: 4% 7%; */
+  text-align: center;
+  color: #582be8 ;
+  font-size: 35px;
+  font-family: 'Mochiy Pop One', sans-serif;
+  animation: bouge 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation-iteration-count: 1;
+  transform: translateX(0);
+}
+
+@keyframes bouge {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+
+}
+
+h2 {
+  color: #582be8;
+  font-size: 30px;
 }
 
 .main {
@@ -20,17 +68,55 @@ h1 {
 }
 
 .leftHeader h2 {
-  margin-right: 10px;
+  margin-right: 17px;
 }
 
-.leftHeader button {
-  padding: 0;
+button {
+  outline: 0;
+  border: 0;
+  padding: 9px;
+  background-color: #3cb17e;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 9px;
+}
+
+button:hover {
+  border: 2px solid #3cb17e;
+  background: #fff;
+  color: #3cb17e;
+  font-size: 17px;
+}
+
+.leftHeader i {
+  margin-left: 10px;
+}
+
+.leftBody > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #582be8;
+  border-bottom: 0;
+}
+
+.leftBody > div p {
+  padding: 15px;
+  color: #582be8;
+  margin: 0 10px;
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .leftBody ul {
-  border: 2px solid #000;
+  border: 1px solid #582be8;
   margin: 0;
   padding: 0;
+}
+
+.leftBody .leaders {
+  height: 50%;
 }
 
 .leftBody ul li {
@@ -38,11 +124,19 @@ h1 {
   list-style-type: none;
   height: 40px;
   margin: auto 0;
-  padding-left: 5px;
+  padding: 15px 15px;
+  border-bottom: 1px solid #582be8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.leftBody ul li:nth-child(odd) {
-  background-color: lightgray;
+.leftBody ul li span {
+  padding: 15px;
+}
+
+.leftBody ul li .span {
+  color: #582be8;
 }
 
 .rightHeader {
@@ -51,4 +145,8 @@ h1 {
 
 .rightBody form input {
   margin-bottom: 20px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-bottom: 2px solid #582be8;
 }
