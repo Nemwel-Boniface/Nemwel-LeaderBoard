@@ -150,3 +150,57 @@ button:hover {
   padding: 10px;
   border-bottom: 2px solid #582be8;
 }
+
+
+/* Desktop responsive */
+
+@media screen and (max-width: 1024px ) {
+  .main {
+    margin: 5% 5%;
+  }
+  h1 {
+    font-size: 30px;
+    margin-bottom: 37px;
+  }
+  h2 {
+    font-size: 27px;
+  }
+  p {
+    font-size: 18px;
+  }
+  button {
+    font-size: 16px;
+  }
+
+  i {
+    font-size: 17px;
+  }
+
+  span {
+    font-size: 17px;
+  }
+  .leftHeader h2 {
+    margin-right: 8px;
+    font-size: 22px;
+  }
+  .leftHeader h2 i {
+    margin-left: 3px;
+  }
+
+  .leftHeader #refresh {
+    padding: 6px;
+    font-size: 16px;
+  }
+
+  .leftHeader #refresh i {
+    font-size: 17px;
+  }
+
+  .leftBody {
+    margin-bottom: 40px;
+  }
+
+  #form > input {
+    width: 100%;
+  }
+}
