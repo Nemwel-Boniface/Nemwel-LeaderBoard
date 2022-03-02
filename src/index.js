@@ -1,8 +1,8 @@
 import './style.css';
 
-import { retrieveFromAPI } from './modules/fromAPI.js';
+import retrieveFromAPI from './modules/fromAPI.js';
 
-import { postToApi } from './modules/toAPI.js';
+import postToApi from './modules/toAPI.js';
 
 export const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
@@ -14,20 +14,21 @@ export const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.n
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  postToApi(leaderName.value, leaderScore.value);
+  postToApi(baseURL, leaderName.value, leaderScore.value);
   form.reset();
 });
 
 export const displayLeaders = ({ user, score }) => {
-  leaderBoardWrapper.innerHTML += `<li>${user}: ${score}</li>`
-}
+  leaderBoardWrapper.innerHTML += `<li>${user}: ${score}</li>`;
+};
 
+document.addEventListener('click', async (click) => {
+  if (click.target.id === 'refresh') {
+    const leaders = await retrieveFromAPI(baseURL);
 
-
-const refresh = document.querySelector('#refresh');
-
-document.addEventListener('click', (click)=> {
-  if(click.target.id === 'refresh') {
-    retrieveFromAPI();
+    leaderBoardWrapper.innerHTML = '';
+    leaders.forEach((leader) => {
+      displayLeaders(leader);
+    });
   }
 });

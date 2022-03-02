@@ -1,6 +1,4 @@
-import { baseURL } from "../index.js";
-
-const postToApi = async (name, score) => {
+const postToApi = async (baseURL, name, score) => {
   await fetch(baseURL, {
     method: 'POST',
     headers: {
@@ -8,11 +6,10 @@ const postToApi = async (name, score) => {
     },
     body: JSON.stringify({
       user: name,
-      score: score,
+      score,
     }),
   })
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-}
+    .then((response) => response.json());
+};
 
-export { postToApi };
+export default postToApi;

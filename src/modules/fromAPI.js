@@ -1,14 +1,8 @@
-import { baseURL, leaderBoardWrapper, displayLeaders } from "../index.js";
-
-const retrieveFromAPI = async () => {
+const retrieveFromAPI = async (baseURL) => {
   const res = await fetch(baseURL);
   const lead = await res.json();
-  const leaders = (await lead).result;
+  const leaders = lead.result;
+  return leaders;
+};
 
-  leaderBoardWrapper.innerHTML = '';
-  leaders.forEach((leader) => {
-    displayLeaders(leader);
-  });
-}
-
-export { retrieveFromAPI };
+export default retrieveFromAPI;
