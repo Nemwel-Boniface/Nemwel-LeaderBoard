@@ -30,12 +30,20 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
+const displayLeaders = ({ user, score }) => {
+  let id = 0;
+  leaderBoardWrapper.innerHTML += `<li id="${id + 1}">${user}: ${score}</li>`
+}
 
-const retireveFromAPI = async () => {
+const retrieveFromAPI = async () => {
   const res = await fetch(baseURL);
-  const text = await res.json();
-  // displayLeaders(text);
-  console.log(text);
+  const lead = await res.json();
+  const leaders = (await lead).result;
+
+  leaderBoardWrapper.innerHTML = '';
+  leaders.forEach((leader) => {
+    displayLeaders(leader);
+  });
 }
 
 const refresh = document.querySelector('#refresh');
@@ -43,6 +51,6 @@ const refresh = document.querySelector('#refresh');
 document.addEventListener('click', (click)=> {
   if(click.target.id === 'refresh') {
     console.log('touched')
-    retireveFromAPI();
+    retrieveFromAPI();
   }
 });
