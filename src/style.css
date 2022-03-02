@@ -139,6 +139,31 @@ button:hover {
   color: #582be8;
 }
 
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+  40% {-webkit-transform: translateY(-30px);}
+  60% {-webkit-transform: translateY(-15px);}
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+
+
 .rightHeader {
   margin-bottom: 40px;
 }
@@ -182,6 +207,63 @@ button:hover {
   .leftHeader h2 {
     margin-right: 8px;
     font-size: 22px;
+  }
+  .leftHeader h2 i {
+    margin-left: 3px;
+  }
+
+  .leftHeader #refresh {
+    padding: 6px;
+    font-size: 16px;
+  }
+
+  .leftHeader #refresh i {
+    font-size: 17px;
+  }
+
+  .leftBody {
+    margin-bottom: 40px;
+  }
+
+  #form > input {
+    width: 100%;
+  }
+}
+
+/* Mobile responsive styles */
+
+@media screen and (max-width: 692px ) {
+  .main {
+    margin: 5% 3%;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 18px;
+  }
+  button {
+    font-size: 16px;
+  }
+
+  i {
+    font-size: 17px;
+  }
+
+  span {
+    font-size: 17px;
+  }
+
+  .main {
+    display: block;
+  }
+
+  .leftHeader h2 {
+    margin-right: 8px;
   }
   .leftHeader h2 i {
     margin-left: 3px;
