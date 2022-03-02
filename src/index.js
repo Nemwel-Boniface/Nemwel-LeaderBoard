@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
 });
 
 export const displayLeaders = ({ user, score }) => {
-  leaderBoardWrapper.innerHTML += `<li>${user}: ${score}</li>`;
+  leaderBoardWrapper.innerHTML += `<li><span>${user}</span><span class="span">${score}</span></li>`;
 };
 
 document.addEventListener('click', async (click) => {
