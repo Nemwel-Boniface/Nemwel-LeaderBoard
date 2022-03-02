@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconst leaderBoardWrapper = document.querySelector('.leaders');\nconst leaderName = document.querySelector('#name');\nconst leaderScore = document.querySelector('#number');\nconst form = document.querySelector('#form');\n\nconst myGameURL = 'ojq3rdgoTgouE5sLha5K';\nconst baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;\n\n\nconst postToApi = async (name, score) => {\n  await fetch(baseURL, {\n    method: 'POST',\n    headers: {\n      'Content-type': 'application/json; charset=UTF-8',\n    },\n    body: JSON.stringify({\n      user: name,\n      score: score,\n    }),\n  })\n  .then((response) => response.json())\n  .then((json) => console.log(json));\n}\n\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  postToApi(leaderName.value, leaderScore.value);\n  form.reset();\n});\n\nconst displayLeaders = ({ user, score }) => {\n  let id = 0;\n  leaderBoardWrapper.innerHTML += `<li id=\"${id + 1}\">${user}: ${score}</li>`\n}\n\nconst retrieveFromAPI = async () => {\n  const res = await fetch(baseURL);\n  const lead = await res.json();\n  const leaders = (await lead).result;\n\n  leaderBoardWrapper.innerHTML = '';\n  leaders.forEach((leader) => {\n    displayLeaders(leader);\n  });\n}\n\nconst refresh = document.querySelector('#refresh');\n\ndocument.addEventListener('click', (click)=> {\n  if(click.target.id === 'refresh') {\n    console.log('touched')\n    retrieveFromAPI();\n  }\n});\n\n//# sourceURL=webpack://nemwel-leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"leaderBoardWrapper\": () => (/* binding */ leaderBoardWrapper),\n/* harmony export */   \"baseURL\": () => (/* binding */ baseURL),\n/* harmony export */   \"displayLeaders\": () => (/* binding */ displayLeaders)\n/* harmony export */ });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_fromAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fromAPI.js */ \"./src/modules/fromAPI.js\");\n/* harmony import */ var _modules_toAPI_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/toAPI.js */ \"./src/modules/toAPI.js\");\n\n\n\n\n\n\nconst leaderBoardWrapper = document.querySelector('.leaders');\nconst leaderName = document.querySelector('#name');\nconst leaderScore = document.querySelector('#number');\nconst form = document.querySelector('#form');\n\nconst myGameURL = 'ojq3rdgoTgouE5sLha5K';\nconst baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;\n\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  (0,_modules_toAPI_js__WEBPACK_IMPORTED_MODULE_2__.postToApi)(leaderName.value, leaderScore.value);\n  form.reset();\n});\n\nconst displayLeaders = ({ user, score }) => {\n  leaderBoardWrapper.innerHTML += `<li>${user}: ${score}</li>`\n}\n\n\n\nconst refresh = document.querySelector('#refresh');\n\ndocument.addEventListener('click', (click)=> {\n  if(click.target.id === 'refresh') {\n    (0,_modules_fromAPI_js__WEBPACK_IMPORTED_MODULE_1__.retrieveFromAPI)();\n  }\n});\n\n//# sourceURL=webpack://nemwel-leaderboard/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/fromAPI.js":
+/*!********************************!*\
+  !*** ./src/modules/fromAPI.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"retrieveFromAPI\": () => (/* binding */ retrieveFromAPI)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./src/index.js\");\n\n\nconst retrieveFromAPI = async () => {\n  const res = await fetch(_index_js__WEBPACK_IMPORTED_MODULE_0__.baseURL);\n  const lead = await res.json();\n  const leaders = (await lead).result;\n\n  _index_js__WEBPACK_IMPORTED_MODULE_0__.leaderBoardWrapper.innerHTML = '';\n  leaders.forEach((leader) => {\n    (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.displayLeaders)(leader);\n  });\n}\n\n\n\n//# sourceURL=webpack://nemwel-leaderboard/./src/modules/fromAPI.js?");
+
+/***/ }),
+
+/***/ "./src/modules/toAPI.js":
+/*!******************************!*\
+  !*** ./src/modules/toAPI.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"postToApi\": () => (/* binding */ postToApi)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./src/index.js\");\n\n\nconst postToApi = async (name, score) => {\n  await fetch(_index_js__WEBPACK_IMPORTED_MODULE_0__.baseURL, {\n    method: 'POST',\n    headers: {\n      'Content-type': 'application/json; charset=UTF-8',\n    },\n    body: JSON.stringify({\n      user: name,\n      score: score,\n    }),\n  })\n  .then((response) => response.json())\n  .then((json) => console.log(json));\n}\n\n\n\n//# sourceURL=webpack://nemwel-leaderboard/./src/modules/toAPI.js?");
 
 /***/ })
 
@@ -191,7 +211,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
