@@ -17,9 +17,8 @@ body {
 }
 
 h1 {
-  /* margin: 4% 7%; */
   text-align: center;
-  color: #582be8 ;
+  color: #582be8;
   font-size: 35px;
   font-family: 'Mochiy Pop One', sans-serif;
   animation: bouge 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -48,7 +47,6 @@ h1 {
   60% {
     transform: translateX(4px);
   }
-
 }
 
 h2 {
@@ -147,22 +145,29 @@ button:hover {
 }
 
 @-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
-  40% {-webkit-transform: translateY(-30px);}
-  60% {-webkit-transform: translateY(-15px);}
+  0%,
+  20%,
+  50%,
+  80%,
+  100% { -webkit-transform: translateY(0); }
+  40% { -webkit-transform: translateY(-30px); }
+  60% { -webkit-transform: translateY(-15px); }
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-30px);}
-  60% {transform: translateY(-15px);}
+  0%,
+  20%,
+  50%,
+  80%,
+  100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
 }
 
 .bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
 }
-
 
 .rightHeader {
   margin-bottom: 40px;
@@ -176,23 +181,26 @@ button:hover {
   border-bottom: 2px solid #582be8;
 }
 
-
 /* Desktop responsive */
 
-@media screen and (max-width: 1024px ) {
+@media screen and (max-width: 1024px) {
   .main {
     margin: 5% 5%;
   }
+
   h1 {
     font-size: 30px;
     margin-bottom: 37px;
   }
+
   h2 {
     font-size: 27px;
   }
+
   p {
     font-size: 18px;
   }
+
   button {
     font-size: 16px;
   }
@@ -204,10 +212,12 @@ button:hover {
   span {
     font-size: 17px;
   }
+
   .leftHeader h2 {
     margin-right: 8px;
     font-size: 22px;
   }
+
   .leftHeader h2 i {
     margin-left: 3px;
   }
@@ -232,20 +242,25 @@ button:hover {
 
 /* Mobile responsive styles */
 
-@media screen and (max-width: 692px ) {
+@media screen and (max-width: 692px) {
   .main {
     margin: 5% 3%;
+    display: block;
   }
+
   h1 {
     font-size: 24px;
     margin-bottom: 30px;
   }
+
   h2 {
     font-size: 18px;
   }
+
   p {
     font-size: 18px;
   }
+
   button {
     font-size: 16px;
   }
@@ -258,13 +273,10 @@ button:hover {
     font-size: 17px;
   }
 
-  .main {
-    display: block;
-  }
-
   .leftHeader h2 {
     margin-right: 8px;
   }
+
   .leftHeader h2 i {
     margin-left: 3px;
   }
