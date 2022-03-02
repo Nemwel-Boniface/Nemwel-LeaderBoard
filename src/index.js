@@ -1,57 +1,34 @@
 import './style.css';
 
-import { addToLocalStorage, getFromLocalStorage } from './modules/localstorage.js';
+import retrieveFromAPI from './modules/fromAPI.js';
 
-const leaderBoardWrapper = document.querySelector('.leaders');
+import postToApi from './modules/toAPI.js';
+
+export const leaderBoardWrapper = document.querySelector('.leaders');
 const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
 const form = document.querySelector('#form');
 
-const myLeaderBoard = [
-  {
-    id: 1,
-    name: 'Nemwel',
-    score: 100,
-  },
-  {
-    id: 2,
-    name: 'Boniface',
-    score: 80,
-  },
-];
-
-const displayLeader = () => {
-  leaderBoardWrapper.innerHTML = '';
-  const mylocal = getFromLocalStorage(myLeaderBoard);
-
-  mylocal.forEach((tsk) => {
-    leaderBoardWrapper.innerHTML += `
-    <li id="${tsk.id}">${tsk.name}: ${tsk.score}</li>`;
-  });
-};
-
-const addLeaderToList = () => {
-  const index = myLeaderBoard.length;
-  myLeaderBoard.push({
-    id: index + 1,
-    name: leaderName.value,
-    score: leaderScore.value,
-  });
-  addToLocalStorage(myLeaderBoard);
-  displayLeader();
-  leaderName.value = '';
-  leaderScore.value = '';
-};
+const myGameURL = 'ojq3rdgoTgouE5sLha5K';
+export const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  addLeaderToList(myLeaderBoard);
-  addToLocalStorage(myLeaderBoard);
+  postToApi(baseURL, leaderName.value, leaderScore.value);
+  form.reset();
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  getFromLocalStorage(myLeaderBoard);
-  displayLeader();
-});
+export const displayLeaders = ({ user, score }) => {
+  leaderBoardWrapper.innerHTML += `<li>${user}: ${score}</li>`;
+};
 
-export default myLeaderBoard;
+document.addEventListener('click', async (click) => {
+  if (click.target.id === 'refresh') {
+    const leaders = await retrieveFromAPI(baseURL);
+
+    leaderBoardWrapper.innerHTML = '';
+    leaders.forEach((leader) => {
+      displayLeaders(leader);
+    });
+  }
+});
