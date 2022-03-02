@@ -9,7 +9,7 @@ const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
 const form = document.querySelector('#form');
 
-const myGameURL = 'ojq3rdgoTgouE5sLha5K';
+const myGameURL = 'aJjPvQ7cnENMtVlki6KE';
 export const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;
 
 form.addEventListener('submit', (e) => {
@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
 });
 
 export const displayLeaders = ({ user, score }) => {
-  leaderBoardWrapper.innerHTML += `<li><span>${user}</span><span class="span">${score}</span></li>`;
+  leaderBoardWrapper.innerHTML += `<li class="animated bounce"><span>${user}</span><span class="span">${score}</span></li>`;
 };
 
 document.addEventListener('click', async (click) => {
