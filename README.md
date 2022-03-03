@@ -3,8 +3,13 @@
 # Nemwel Leader Board
 
 > Nemwel leader board is a simple application that consumes an API and lists people according to their scores.
-![screenshot](./leaderboard1.png)
+![screenshot](./images/lbMV.png)
+![screenshot](./images/lbTV.png)
+![screenshot](./images/lbDV.png)
 
+## How to use my application
+
+When you submit a name and a score to the form, my leaderboard list will not automatically update itself. It requires you to hit the refresh button to fetch all the data from the API. Note that my leaderboard does not sort the scores it just displays them as they are.
 
 ## Built With
 

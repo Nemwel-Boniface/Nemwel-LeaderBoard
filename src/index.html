@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome icons -->
+
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!--Google fonts Mochiy pop one, poppins-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
     <title>Nemwel Leader Board</title>
 </head>
 <body>
-    <h1>Leader Board</h1>
-    <main class="main">
+    <main class="NemwelLB">
+        <h1>Nemwel's Leader Board</h1>
+    <section class="main">
         <section class="left">
             <div class="leftHeader">
-                <h2>Recent Scores</h2>
-                <button id="refresh">Refresh</button>
+                <h2>Recent Scores <i class="fa fa-star" aria-hidden="true"></i>
+                </h2>
+                <button type="button" id="refresh">Refresh<i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
             </div>
             <div class="leftBody">
+                <div>
+                    <p>User</p>
+                    <p class="sc">Score</p>
+                </div>
                 <ul class="leaders"></ul>
             </div>
         </section>
 
         <section class="right">
             <div class="rightHeader">
-                <h2>Add your score</h2>
+                <h2>Add your score <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </h2>
             </div>
             <div class="rightBody">
                 <form id="form">
@@ -30,6 +55,7 @@
                 </form>
             </div>
         </section>
-    </main>
+    </section>
+</main>
 </body>
 </html>
