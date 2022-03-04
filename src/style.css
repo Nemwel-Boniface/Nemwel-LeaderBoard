@@ -56,6 +56,7 @@ h2 {
 
 .main {
   margin: 5% 8%;
+  height: 50vh;
   display: flex;
   gap: 50px;
 }
@@ -114,7 +115,8 @@ button:hover {
 }
 
 .leftBody .leaders {
-  height: 50%;
+  max-height: 50%;
+  overflow-y: scroll;
 }
 
 .leftBody ul li {
