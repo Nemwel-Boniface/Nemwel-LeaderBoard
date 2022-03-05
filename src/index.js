@@ -9,7 +9,7 @@ const leaderName = document.querySelector('#name');
 const leaderScore = document.querySelector('#number');
 const form = document.querySelector('#form');
 
-const myGameURL = 'aJjPvQ7cnENMtVlki6KE';
+const myGameURL = 'AYTobGSw40a3MfxWImKz';
 export const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;
 
 form.addEventListener('submit', (e) => {
