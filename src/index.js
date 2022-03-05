@@ -12,21 +12,9 @@ const form = document.querySelector('#form');
 const myGameURL = 'aJjPvQ7cnENMtVlki6KE';
 export const baseURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myGameURL}/scores/`;
 
-const formValidation = () => {
-  if(leaderScore.value !== '' && leaderName.value !== '') {
-    return true;
-  }
-  return false;
-}
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if(formValidation) {
-    postToApi(baseURL, leaderName.value, leaderScore.value);
-  } else {
-    e.preventDefault();
-    alert(`The input field only allows upto 12 characters yours is ${leaderName.value.length} chars long`);
-  }
+  postToApi(baseURL, leaderName.value, leaderScore.value);
   form.reset();
 });
 
